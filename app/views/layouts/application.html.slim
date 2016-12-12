@@ -1,7 +1,11 @@
 doctype html
 html
   head
-    title Pointschauds
+    title
+      | Pointschauds
+      - if content_for? :title
+        | -
+        = yield :title
     = csrf_meta_tags 
     
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
@@ -22,9 +26,9 @@ html
           #bs-example-navbar-collapse-1.collapse.navbar-collapse
             ul.nav.navbar-nav
               li.active
-                a href="#" 
-                  | Link
+                = link_to new_survey_path
                   span.sr-only (current)
+                  | New survey
               li
                 a href="#"  Link
               li.dropdown

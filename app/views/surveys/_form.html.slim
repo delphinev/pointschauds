@@ -1,0 +1,19 @@
+- @survey.errors.full_messages.each do |message|
+  p 
+   = message
+
+= form_for @survey do |f| 
+  .form-group
+    = f.label :title
+    = f.text_field :title, class: 'form-control'
+  .form-group
+    = f.label :context
+    = f.text_area :context, class: 'form-control'
+  = f.nested_fields_for :choices do |choice|
+    .form-group
+      = choice.label :title
+      = choice.text_field :title, class: 'form-control'
+      = choice.remove_nested_fields_link 'Remove me'
+  = f.add_nested_fields_link :choices
+  button.btn.btn-default[type="submit"]
+    | Submit
