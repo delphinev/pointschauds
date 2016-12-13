@@ -11,8 +11,12 @@ class SurveysController < ApplicationController
   end
 
   def update
-    survey.update survey_params
-    respond_with survey
+    authorize survey
+    if survey.update survey_params
+      respond_with survey
+    else
+      render :edit
+    end
   end
 
   private
@@ -22,7 +26,7 @@ class SurveysController < ApplicationController
     end
 
     def survey
-      @survey ||= current_user.surveys.find(params[:id])
+      @survey ||= Survey.find(params[:id])
     end
 
     helper_method :survey

@@ -3,3 +3,4 @@ h1
   = survey.title
 
 = link_to 'Edit', edit_survey_path
+= link_to 'Edit', edit_survey_path if policy(survey).edit?
