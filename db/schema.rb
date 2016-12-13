@@ -50,6 +50,5 @@ ActiveRecord::Schema.define(version: 20161212163720) do
     t.datetime "updated_at",                          null: false
   end
 
-  add_foreign_key "choices", "surveys"
   add_foreign_key "surveys", "users", column: "creator_id"
 end
