@@ -1,8 +1,8 @@
 - @survey.errors.full_messages.each do |message|
-  p 
+  p
    = message
 
-= form_for @survey do |f| 
+= form_for @survey do |f|
   .form-group
     = f.label :title
     = f.text_field :title, class: 'form-control'
