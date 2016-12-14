@@ -9,6 +9,10 @@ class SurveysController < ApplicationController
     @survey = Survey.new
   end
 
+  def show
+    @vote = Vote.new
+  end
+
   def create
     @survey = current_user.surveys.create survey_params
     respond_with @survey

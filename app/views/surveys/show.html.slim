@@ -9,9 +9,13 @@
     = survey.context
 
   .jumbotron
-    ul
-      - survey.choices.each do |choice|
-        li
-          = choice.title
+    = form_for [survey, @vote], remote: true do |f|
+      ul
+        - survey.choices.each do |choice|
+          li
+            = choice.title
+            = f.radio_button :choice_id, choice.id
+
+      = f.submit
 
   = link_to 'Edit', edit_survey_path if policy(survey).edit?
