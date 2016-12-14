@@ -14,13 +14,14 @@ class SurveysController < ApplicationController
     respond_with @survey
   end
 
+  def edit
+    authorize survey
+  end
+
   def update
     authorize survey
-    if survey.update survey_params
-      respond_with survey
-    else
-      render :edit
-    end
+    survey.update survey_params
+    respond_with survey
   end
 
   private
