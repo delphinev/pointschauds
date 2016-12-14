@@ -1,5 +1,17 @@
-h1
-  = "Survey : "
-  = survey.title
+#survey
+  h2
+    = survey.title
+    .small
+      | survey created by 
+      = survey.creator.email
 
-= link_to 'Edit', edit_survey_path
+  .lead
+    = survey.context
+
+  .jumbotron
+    ul
+      - survey.choices.each do |choice|
+        li
+          = choice.title
+
+  = link_to 'Edit', edit_survey_path if policy(survey).edit?

@@ -42,3 +42,4 @@ gem 'sass-rails', '>= 3.2'
 gem 'slim-rails'
 gem 'nested_form_fields'
 gem 'responders'
+gem "pundit"

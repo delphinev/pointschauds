@@ -1,6 +1,10 @@
 class SurveysController < ApplicationController
   respond_to :html
 
+  def index
+    @surveys = Survey.all
+  end
+
   def new
     @survey = Survey.new
   end
@@ -10,7 +14,12 @@ class SurveysController < ApplicationController
     respond_with @survey
   end
 
+  def edit
+    authorize survey
+  end
+
   def update
+    authorize survey
     survey.update survey_params
     respond_with survey
   end
@@ -22,7 +31,7 @@ class SurveysController < ApplicationController
     end
 
     def survey
-      @survey ||= current_user.surveys.find(params[:id])
+      @survey ||= Survey.find(params[:id])
     end
 
     helper_method :survey

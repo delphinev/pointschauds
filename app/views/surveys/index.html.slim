@@ -1,0 +1,12 @@
+#surveys
+
+  h2
+    | Vote vote vote
+
+  ul
+    - @surveys.each do |survey|
+      li
+        = survey.title 
+        |  - 
+        = link_to 'Click me', survey_path(survey)
+
