@@ -14,7 +14,7 @@
         - survey.choices.each do |choice|
           li
             = choice.title
-            = f.radio_button :choice_id, choice.id
+            = f.check_box :choice_id, { multiple: true }, choice.id
 
       = f.submit
 

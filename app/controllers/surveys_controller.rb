@@ -10,7 +10,7 @@ class SurveysController < ApplicationController
   end
 
   def show
-    @vote = Vote.new
+    @vote = ParticipationVote.new
   end
 
   def create

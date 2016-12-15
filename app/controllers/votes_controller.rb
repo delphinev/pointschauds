@@ -12,7 +12,7 @@ class VotesController < ApplicationController
   private
 
     def vote_params
-      params.require(:vote).permit :choice_id
+      params.require(:vote).permit choice_id: []
     end
 
     def survey
